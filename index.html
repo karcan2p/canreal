@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Country Link Selector</title> 
+  <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            font-family: 'Verdana', sans-serif;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: inline-block;
+            background: #2e2e2e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 10px;
+            background-color: #333;
+            border: 1px solid #555;
+            color: #f0f0f0;
+            font-size: 1rem;
+            border-radius: 5px;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        select:hover {
+            background-color: #444;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background-color: #0066cc;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 10px rgba(0, 102, 204, 0.5);
+        }
+
+        .about-section {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #d3d3d3;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            color: #bbb;
+            font-size: 0.8rem;
+        }
+
+    </style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <h1>Select Your Country</h1> <select id="countrySelect"> <option value="">Select Country</option> <option value="us">United States</option> <option value="uk">United Kingdom</option> <option value="de">Germany</option> <option value="fr">France</option> <option value="ca">Canada</option> <option value="it">Italy</option> <option value="es">Spain</option> <option value="in">India</option> </select> 
+   <br> <a id="countryLink" href="#" class="btn" style="display:none;">PURCHASE</a> 
+   <div class="about-section">
+     In order to get the purchase link kindly select your country for the best price range product. 
+   </div> 
+  </div> 
+  <div class="contact-info">
+    Contact: fhox1000@gmail.com 
+  </div> 
+  <script>
+        const countrySelect = document.getElementById("countrySelect");
+        const countryLink = document.getElementById("countryLink");
+
+        const countryLinks = {
+            us: "https://amzn.to/4cVWOy0",
+            uk: "https://amzn.to/4gezuyd",
+            de: "https://amzn.to/3TkPtBc",
+            fr: "https://amzn.to/3TklJnS",
+            ca: "https://amzn.to/3TpbjTV",
+            it: "https://amzn.to/3B6tEPd",
+            es: "https://amzn.to/4d1VQ34",
+            in: "https://amzn.to/3zmCms6"
+        };
+
+        countrySelect.addEventListener("change", function () {
+            const selectedCountry = countrySelect.value;
+            if (selectedCountry) {
+                countryLink.href = countryLinks[selectedCountry];
+                countryLink.style.display = "inline-block";
+            } else {
+                countryLink.style.display = "none";
+            }
+        });
+    </script> 
+ 
+</body></html>
